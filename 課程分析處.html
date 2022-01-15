@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>課程分析處</title>
+    <meta charset="utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>  
+    <style type="text/css">
+        body{
+            background: #a66e6e;
+        }
+        #txtList{ 
+                position: absolute;
+                z-index: 1;
+                bottom: 0px;
+                font-size: 20px;
+                text-align: center;
+                left: 50%;
+                transform: translateX(-50%);
+                font-family: helvetica, sans-serif;
+                bottom: 20%;
+                background: none;
+                border: 2px solid white; 
+                 color:black; 
+                /* background-color: black; */
+                }    
+        ::placeholder{
+            color:white ;
+        }   
+        img   {  height: 100px;
+                 width: 100px;
+                 /* padding: 2px; */
+                 float: left;
+                 /* bottom:70% */
+                 /* border: black solid; */
+                 margin-left: 0.2%;
+                }
+        
+        #big img{   height: 200px; 
+                    width: 200px; 
+                    margin-left: 11%;
+                    margin-top: 5%;
+                }
+
+        .name{
+            color: white;
+            text-align: center;
+        }
+        .professor{
+            margin-top: 100px;
+
+        }
+        .block11{
+           margin-left: 30%;
+           margin-right: auto;
+        }
+        .block22{
+           margin-left: 55%;
+           
+           margin-top: 10%;
+        } 
+        .but1{
+            margin-left: 30%;
+            
+        }
+        .but2{
+            margin-left: 55%;
+            
+        }
+        #bird{
+            position: absolute;
+            bottom:50px;
+            left: 50px;   
+                 
+        }
+        #bird2{
+            width: 150px;
+            height: 150px;
+            position: absolute;
+            bottom:50px;
+            left: 150px; 
+              
+        }
+        #wave{
+            width:300px;
+            height: 250px;
+            margin-bottom: -5%;
+            margin-left:60%; 
+        }
+        #wave2{
+            width:350px;
+            height: 280px;
+            margin-bottom: 0%;
+            margin-left:-11%; 
+        }
+        #pic13{
+                position: absolute;
+                left:1065px;
+               
+        }
+        /*******************************************/
+        #teachercenter{
+            position: absolute;
+            top: 100px;
+            left: 41%;
+            height: 200px; 
+            width: 200px; 
+        }
+        .course{
+            position: absolute;
+            left: 30%;
+            top: 300px;
+        }
+        #back1,#back2,#back3,#back4,#back5,#back6,#back7,#back8,#back9,#back10,#back11,#back12,#back13{
+            position: absolute;
+            left: 230px;
+            top: 120px;
+            font-size: 4px;
+            padding: 5px 10px;
+        }
+        #back14{
+            position: absolute;
+            left: 100px;
+            top: 500px;
+            font-size: 4px;
+            padding: 5px 10px;
+        }
+        #backstart{
+            position: absolute;
+            left: 700px;
+            top: 570px;
+            font-size: 4px;
+            padding: 5px 10px;
+
+        }
+        a{   
+                position: absolute;
+                border:  white 2px solid; 
+                width: 200px; 
+                height: 60px;
+                font-size: 20px;
+                text-align: center;
+                text-decoration: none;
+                color: white;
+                left: 12px;
+                top: 10px;
+        }
+        a:hover{
+            background-color: rgb(132, 95, 101);
+        }
+        .study{
+            position: absolute;
+            left: 300px;
+            
+        }
+        #comment{
+            position: absolute;
+            left: 1230px;
+            top:50px;
+        }
+        /********************************************/
+        .btn-6 {
+                color: #ab1833;
+                }
+        .btn-6:hover {
+                -webkit-animation: pulse 1s ease-in infinite;
+                        animation: pulse 1s ease-in infinite;
+                background: -webkit-radial-gradient(circle, rgba(255, 178, 11, 0.603) 43%, rgb(231, 178, 2) 50%) 0 0/1em 1em, -webkit-radial-gradient(circle, rgba(249, 135, 155, 0.25) 43%, rgba(0, 0, 0, 0) 50%) 0.5em 0.5em/2em 2em;
+                background: radial-gradient(circle, rgba(255, 178, 11, 0.603) 43%, rgb(231, 178, 2) 50%) 0 0/1em 1em, radial-gradient(circle, rgba(249, 135, 155, 0.25) 43%, rgba(0, 0, 0, 0) 50%) 0.5em 0.5em/2em 2em;
+                color: #ffffff;
+                }
+
+                @-webkit-keyframes pulse {
+                50% {
+                    background-position: 0.66em 0.66em, -0.33em -0.33em;
+                }
+                100% {
+                    background-size: 2em 2em, 1em 1em;
+                    background-position: -1.5em -1.5em, -1em -1em;
+                }
+                }
+
+                @keyframes pulse {
+                50% {
+                    background-position: 0.66em 0.66em, -0.33em -0.33em;
+                }
+                100% {
+                    background-size: 2em 2em, 1em 1em;
+                    background-position: -1.5em -1.5em, -1em -1em;
+                }
+                }
+        /*******************************************/
+        .btn {
+            padding: 10px 20px;
+            font-size: 6px;
+            cursor: pointer;
+            position: relative;
+            border: 2px solid white;
+            outline: none;
+            color: white;
+            background-color: transparent;
+            margin: 10px;
+            font-family: 'Merriweather', serif;
+            white-space: nowrap;
+            }
+        .btn--border::after, .btn--border::before,
+        .btn--border span::after,
+        .btn--border span::before {
+        content: "";
+        position: absolute;
+        background-color: white;
+        transition: 0.5s ease;
+        }
+        .btn--border::after, .btn--border::before {
+        height: 100%;
+        width: 1px;
+        top: -2px;
+        }
+
+        .btn--border::after {
+        left: -2px;
+        }
+        .btn--border::before {
+        right: -2px;
+        }
+        .btn--border span::after,
+        .btn--border span::before {
+        height: 2px;
+        width: 100%;
+        left: -2px;
+        }
+        .btn--border span::after {
+        top: -2px;
+        }
+        .btn--border span::before {
+        bottom: -2px;
+        }
+        .btn--border:hover{
+            background-color: rgb(132, 95, 101);
+        }
+        .btn--border:hover:after {
+        transform: translatex(-12px);
+        }
+        .btn--border:hover:before {
+        transform: translatex(12px);
+        }
+        .btn--border:hover span::after {
+        transform: translatey(-12px);
+        }
+        .btn--border:hover span::before {
+        transform: translatey(12px);
+        }
+        /**************************************/
+        .btn--future{
+            margin: 30px;
+            font-size: 20px;
+        }
+        .btn--future::after, .btn--future::before {
+        content: "";
+        position: absolute;
+        border: 2px solid white;
+        width: calc(100% + 15px);
+        height: 60px;
+        transition: 0.5s ease;
+        }
+        .btn--future::after {
+        top: -15px;
+        left: -15px;
+        border-right: none;
+        border-bottom: none;
+        }
+        .btn--future::before {
+        bottom: -15px;
+        right: -15px;
+        border-left: none;
+        border-top: none;
+        }
+        .btn--future:hover{
+            background-color: rgb(132, 95, 101);
+        }
+        .btn--future:hover:after, .btn--future:hover:before {
+        width: calc(100% - 30px);
+        height: 80px;
+        }
+    /****************************************/
+        .container{
+            margin:50px auto;
+            width:1100px;
+            position:relative;
+        }
+        .container p{
+            text-align:center;
+            padding:10px auto;
+        }
+        .beat-char {
+            line-height: 3.4em;
+            position: relative;
+            display: inline-block;
+            background: transparent;
+        }
+        .rotate{
+            transform:rotate(360deg) ;
+            -ms-transform:rotate(360deg); 	/* IE 9 */
+            -moz-transform:rotate(360deg); 	/* Firefox */
+            -webkit-transform:rotate(360deg); /* Safari 和 Chrome */
+            -o-transform:rotate(360deg);
+            -webkit-transition-duration: 0.7s;
+
+        }
+        
+        #rotateText.vvv{
+            color: rgb(205, 228, 226);
+            position: absolute;
+            top:130px;
+            left:490px;
+        }
+        #rotateText{
+            color: wheat;
+            position: absolute;
+            top:100px;
+            left:650px;
+        }
+        
+        #rotateText.ntouu{
+            color: wheat;
+            position: absolute;
+            top:220px;
+            left:25px;
+        }
+        #rotateText.ntouu2{
+            color: wheat;
+            position: absolute;
+            top:80px;
+            left:300px;
+        }
+        /*************************************************/
+        * h1, * h2, * h3, * h4, * h5, * h6, * .h1, * .h2, * .h3, * .h4, * .h5, * .h6 {
+            font-weight: bold;
+        }
+        header.jumbotron {
+            border-radius: 0;
+            text-align: center;
+            background-image: url("http://hbimg.huabanimg.com/2a5f7f720f7f7a4be5f503d7aaae1e3fdea658ef1b84f0-HC82VE_fw658");
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center center;
+            margin-bottom: 0px;
+        }
+        header.jumbotron .container {
+            color: white;
+            padding: 14.5rem 0px;
+            padding-bottom: 23rem;
+        }
+        header.jumbotron .container h4 {
+            color: #D5EEFF;
+            font-weight: normal;
+        }
+        header.jumbotron .container .start_btn:active .btn_style {
+            background-color: #007bff;
+        }
+        header.jumbotron .container .start_btn .btn_style {
+           /* position: absolute;
+            top: 370px;
+            left:620px; */
+            margin-top: 3rem;
+
+            background-color: #2AB9EE;
+            opacity: 0.83;
+            font-size: 1.5rem;
+            border-radius: 7px;
+            letter-spacing: 2px;
+            padding: 8px 39px;
+            }
+        header.jumbotron .container .div_button_border .btn_border {
+            /* position: absolute;
+            top: 350px;
+            left:600px; */
+            position: relative;
+            bottom: 63px;
+            right: 7.5px;
+            border: 2.75px solid #D5EEFF;
+            background-color: transparent;
+            border-radius: 7px;
+            width: 187px;
+            height: 58px;
+            }
+        header.jumbotron .container .div_button_border .btn_border:active {
+            background-color: transparent;
+            border: #2AB9EE;
+            }
+        header.jumbotron .container .div_button_border .btn_border:hover {
+            /* position: absolute;
+            top: 365px;
+            left:610px; */
+            bottom: 75px;
+            right: 0.5px;
+            transition: 0.4s;
+            -moz-transition: 0.4s;
+            -webkit-transition: 0.4s;
+            -o-transition: 0.4s;
+            }
+        /*********************************************/
+        /* div #dialogue{
+            border: 1px solid black;
+            width: 600px;
+            height: 150px;
+            overflow: auto;
+            padding: 5px;
+            background-color: lightyellow;
+        }
+
+        .verb {
+            font-weight: bold;
+            background-color: #fab922;
+        }
+
+        .time {
+            font-size: .7em;
+            color: darkblue;
+        } */
+
+
+
+
+    </style>
+     <script src = "professor.js"src="jquery1.js"></script>
+     <script src = "ntou.js"src="jquery1.js"></script>    
+</head>
+<body translate="no" >
+<div id="page0" style="display: block;">
+    <header class="jumbotron">
+        <div class="container banner_title particletext bubbles" style="width: 100%; height: auto; position: relative; bottom: 0px">
+          <div data-0="transform: translateY(-20px)" data-500="transform: translateY(100px)">
+            <h1><strong><p id="rotateText" class="vvv">歡迎來到</p></strong>課程分析處</h1>
+            
+            <h4>希望各位能找到中意的課</h4>
+          </div>
+          
+          <div class="start_btn wow pulse" data-wow-iteration="infinite" data-wow-duration="900ms">
+              <div class="div_button">
+                <button class="btn btn-primary btn_style" type="button">ENTER</button>
+              </div>
+              <div class="div_button_border">
+                <button class="btn btn-primary btn_border" type="button" id="startt"></button>
+              </div>
+            </a>
+          </div>
+        </div>
+    </header>
+</div>
+
+
+
+<div id="page1" style="display:none;">
+        <div class="professor">
+            <button class="btn btn-6" id="backstart">&laquo;&emsp;back<span></span></button> 
+            <button class="btn btn--future" id="comment">Comment</button>
+            <div class="container">
+                <h1> <strong><p id="rotateText" class="ntouu">NTOU</p></strong></h1>
+             </div>
+            <div class="centerimg" id = "big" >
+                <img id = "imgbig" src = "ntou.png" >
+            </div>
+            
+
+            <div class="but1">
+                <button class="btn btn--border" id="page1-1">丁培毅</a><span></span></button> 
+                <button class="btn btn--border" id="page1-2">李孟書<span></span></button>
+                <button class="btn btn--border" id="page1-3">辛華昀<span></span></button>
+                <button class="btn btn--border" id="page1-4">阮議聰<span></span></button>
+                <button class="btn btn--border" id="page1-5">林英仁<span></span></button>
+                <button class="btn btn--border" id="page1-6">林韓禹<span></span></button>
+                <button Class="btn btn--border" id="page1-13">林川傑<span></span></button>
+            </div>
+            <div class="block11">
+                 <img src = "tr1.png"   id = "pic1" >
+                <img src = "tr2.png" id = "pic2" >
+                <img src = "tr3.png" id = "pic3" >
+                <img src = "tr4.png" id = "pic4" >
+                <img src = "tr5.png" id = "pic5" >
+                <img src = "tr6.png" id = "pic6" >
+                <img src = "tr13.png"     id ="pic13" width="145px" height="145px">
+            </div>
+    
+           <div class="block22">
+                <img src = "tr7.png" id = "pic7" >
+                <img src = "tr8.png" id = "pic8" >
+                <img src = "tr9.png" id = "pic9" >
+                <img src = "tr10.png" id = "pic10" >
+                <img src = "tr11.png" id = "pic11" >
+                <img src = "tr12.png" id = "pic12" >
+           </div>
+           
+            
+            
+        </div>
+        <div class="but2">
+          <button class="btn btn--border" id="page1-7">馬尚彬<span></span></button>  
+          <button class="btn btn--border" id="page1-8">張光遠<span></span></button>  
+          <button class="btn btn--border" id="page1-9">許玉平<span></span></button>  
+          <button class="btn btn--border" id="page1-10">程華淮<span></span></button>  
+          <button class="btn btn--border" id="page1-11">蔡宇軒<span></span></button>  
+          <button class="btn btn--border" id="page1-12">嚴茂旭<span></span></button>  
+      </div>
+        <div >
+                <img id = "bird" src = "bird2.png" >
+                <img id = "bird2" src = "bird2.png" >
+                <img id = "wave" src = "wave3.png" >
+                <img id = "wave2" src = "wave3.png" >
+            </div>
+        
+    <p>
+        <select id="txtList" onchange="window.open(this.options[this.selectedIndex].value)"  autocomplete="on">
+            <datalist id="class">
+                <option >課程關鍵字搜尋欄</option>    
+                <option value="計算機概論_林韓禹.html">B57011RQ計算機概論_林韓禹</option>
+                <option value="計算機概論實習_林韓禹.html">B57011RR計算機概論實習_林韓禹</option>
+                <option value="普通物理_張光遠.html">B57011RS普通物理_張光遠</option>
+                <option value="程式設計_丁丁.html">B5701M33程式設計_丁培毅</option>
+                <option value="程式設計實習(C)_丁丁.html">B5701M30程式設計實習_丁培毅</option>
+                <option value="離散數學_林英仁.html">B5701V75離散數學_林英仁</option>
+                <option value="微積分_許玉平.html">B5711M97微積分_許玉平</option>
+                <option value="程式設計二_阮議聰.html">B5701M3J程式設計二_阮議聰</option>
+                <option value="程式設計實習二_阮議聰.html">B570132V程式設計實習二_阮議聰</option>
+                <option value="數位邏輯_嚴茂旭.html">B5701R9E數位邏輯_嚴茂旭</option>
+                <option value="數位邏輯實習_嚴茂旭.html">B5701R9F數位邏輯實習_嚴茂旭</option>
+                <option value="線性代數_程華淮.html">B5701S60線性代數_程華淮</option>
+                <option value="數位系統設計_辛華昀.html">B570218K數位系統設計_辛華昀</option>
+                <option value="計算機組織學_辛華昀.html">B5702988計算機組織學_辛華昀</option>
+                <option value="網頁程式設計_馬尚彬.html">B57021RP網頁程式設計_馬尚彬</option>
+                <option value="資料結構_蔡宇軒.html">B5702N57資料結構_蔡宇軒</option>
+                <option value="資料結構實習_蔡宇軒.html">B5702M57資料結構實習_蔡宇軒</option>
+                <option value="機率論_李孟書.html">B5702T0E機率論_李孟書</option>
+                <option value="程式設計(A)_林川傑.html">B5701M33程式設計_林川傑</option>
+                <option value="程式設計實習(A)_林川傑.html">B5701M30程式設計實習_林川傑</option>
+            </datalist>
+        </select>
+    </p>
+    
+</div>
+<div id="teacher1" style="display:none">
+    <!-- 丁丁 -->
+    <div class="container">
+        <h1> <strong><p id="rotateText" class="ntouu2">NTOU</p></strong></h1>
+     </div>
+    <div class="container">
+       <h2> <strong><p id="rotateText">丁&ensp;培&ensp;毅</p></strong></h2>
+    </div>
+    <div >
+        <img id = "teachercenter" src = "tr1.png" >
+    </div>
+    <div class="course">
+        <a href = "程式設計_丁丁.html" target="_blank"><br>&emsp;程式設計C&emsp;</a>
+        <div class="study"><a href = "程式設計實習(C)_丁丁.html" target="_blank"><br>程式設計實習C</a></div>
+        <button class="btn btn-6" id="back1">&laquo;&emsp;back<span></span></button> 
+    </div>
+</div>
+<div id="teacher2" style="display:none">
+    <!-- 李孟書 -->
+    <div class="container">
+        <h1> <strong><p id="rotateText" class="ntouu2">NTOU</p></strong></h1>
+     </div>
+    <div class="container">
+        <h2> <strong><p id="rotateText">李&ensp;孟&ensp;書</p></strong></h2>
+     </div>
+    <div >
+        <img id = "teachercenter" src = "tr2.png" >
+    </div>
+    <div  class="course">
+        <a href = "機率論_李孟書.html" target="_blank"><br>&emsp;機率論&emsp;</a>
+        <button class="btn btn-6" id="back2">&laquo;&emsp;back<span></span></button> 
+    </div>
+</div>
+
+<div id="teacher3" style="display:none">
+    <!-- 辛華昀 -->
+    <div class="container">
+        <h1> <strong><p id="rotateText" class="ntouu2">NTOU</p></strong></h1>
+     </div>
+    <div class="container">
+        <h2> <strong><p id="rotateText">辛&ensp;華&ensp;昀</p></strong></h2>
+     </div>
+    <div >
+        <img id = "teachercenter" src = "tr3.png" >
+    </div>
+    <div  class="course">
+        <a href = "數位系統設計_辛華昀.html" target="_blank"><br>數位系統設計</a>
+        <div class="study"><a href = "計算機組織學_辛華昀.html" target="_blank"><br>計算機組織學</a></div>
+        <button class="btn btn-6" id="back3">&laquo;&emsp;back<span></span></button> 
+    </div>
+</div>
+
+<div id="teacher4" style="display:none">
+    <!-- 阮議聰  -->
+    <div class="container">
+        <h1> <strong><p id="rotateText" class="ntouu2">NTOU</p></strong></h1>
+     </div>
+    <div class="container">
+        <h2> <strong><p id="rotateText">阮&ensp;議&ensp;聰</p></strong></h2>
+     </div>
+    <div >
+        <img id = "teachercenter" src = "tr4.png" >
+    </div>
+    <div  class="course">
+        <a href = "程式設計二_阮議聰.html" target="_blank"><br>&emsp;程式設計二&emsp;</a>
+        <div class="study"><a href = "程式設計實習二_阮議聰.html" target="_blank"><br>程式設計實習二</a></div>  
+        <button class="btn btn-6" id="back4">&laquo;&emsp;back<span></span></button> 
+    </div>
+</div>
+
+<div id="teacher5" style="display:none">
+    <!-- 林英仁  -->
+    <div class="container">
+        <h1> <strong><p id="rotateText" class="ntouu2">NTOU</p></strong></h1>
+     </div>
+    <div class="container">
+        <h2> <strong><p id="rotateText">林&ensp;英&ensp;仁</p></strong></h2>
+     </div>
+    <div >
+        <img id = "teachercenter" src = "tr5.png" >
+    </div>
+    <div  class="course">
+        <a href = "離散數學_林英仁.html" target="_blank"><br>&emsp;離散數學&emsp;</a>   
+        <button class="btn btn-6" id="back5">&laquo;&emsp;back<span></span></button> 
+    </div>
+</div>
+
+<div id="teacher6" style="display:none">
+    <!-- 林韓禹 -->
+    <div class="container">
+        <h1> <strong><p id="rotateText" class="ntouu2">NTOU</p></strong></h1>
+     </div>
+    <div class="container">
+        <h2> <strong><p id="rotateText">林&ensp;韓&ensp;禹</p></strong></h2>
+     </div>
+    <div >
+        <img id = "teachercenter" src = "tr6.png" >
+    </div>
+    <div  class="course">
+        <a href = "計算機概論_林韓禹.html" target="_blank"><br>&emsp;計算機概論&emsp;</a>
+        <div class="study"><a href = "計算機概論實習_林韓禹.html" target="_blank"><br>計算機概論實習</a></div>
+        <button class="btn btn-6" id="back6">&laquo;&emsp;back<span></span></button> 
+    </div>
+</div>
+
+<div id="teacher7" style="display:none">
+    <!-- 馬尚彬 -->
+    <div class="container">
+        <h1> <strong><p id="rotateText" class="ntouu2">NTOU</p></strong></h1>
+     </div>
+    <div class="container">
+        <h2> <strong><p id="rotateText">馬&ensp;尚&ensp;彬</p></strong></h2>
+     </div>
+    <div >
+        <img id = "teachercenter" src = "tr7.png" >
+    </div>
+    <div  class="course">
+        <a href = "網頁程式設計_馬尚彬.html" target="_blank"><br>網頁程式設計</a>
+        <button class="btn btn-6" id="back7">&laquo;&emsp;back<span></span></button> 
+    </div>
+</div>
+
+<div id="teacher8" style="display:none">
+    <!--張光遠  -->
+    <div class="container">
+        <h1> <strong><p id="rotateText" class="ntouu2">NTOU</p></strong></h1>
+     </div>
+    <div class="container">
+        <h2> <strong><p id="rotateText">張&ensp;光&ensp;遠</p></strong></h2>
+     </div>
+    <div >
+        <img id = "teachercenter" src = "tr8.png" >
+    </div>
+    <div  class="course">
+        <a href = "普通物理_張光遠.html" target="_blank"><br>&emsp;普通物理&emsp;</a>
+        <button class="btn btn-6" id="back8">&laquo;&emsp;back<span></span></button> 
+    </div>
+</div>
+
+<div id="teacher9" style="display:none">
+    <!--許玉平  -->
+    <div class="container">
+        <h1> <strong><p id="rotateText" class="ntouu2">NTOU</p></strong></h1>
+     </div>
+    <div class="container">
+        <h2> <strong><p id="rotateText">許&ensp;玉&ensp;平</p></strong></h2>
+     </div>
+    <div >
+        <img id = "teachercenter" src = "tr9.png" >
+    </div>
+    <div  class="course">
+        <a href = "微積分_許玉平.html" target="_blank"><br>&emsp;微積分&emsp;</a>
+        <button class="btn btn-6" id="back9">&laquo;&emsp;back<span></span></button> 
+    </div>
+</div>
+
+<div id="teacher10" style="display:none">
+    <!--程華淮  -->
+    <div class="container">
+        <h1> <strong><p id="rotateText" class="ntouu2">NTOU</p></strong></h1>
+     </div>
+    <div class="container">
+        <h2> <strong><p id="rotateText">程&ensp;華&ensp;淮</p></strong></h2>
+     </div>
+    <div >
+        <img id = "teachercenter" src = "tr10.png" >
+    </div>
+    <div  class="course">
+        <a href = "線性代數_程華淮.html" target="_blank"><br>&emsp;線性代數&emsp;</a>
+        <button class="btn btn-6" id="back10">&laquo;&emsp;back<span></span></button> 
+    </div>
+</div>
+
+<div id="teacher11" style="display:none">
+    <!--蔡宇軒  -->
+    <div class="container">
+        <h1> <strong><p id="rotateText" class="ntouu2">NTOU</p></strong></h1>
+     </div>
+    <div class="container">
+        <h2> <strong><p id="rotateText">蔡&ensp;宇&ensp;軒</p></strong></h2>
+     </div>
+    <div >
+        <img id = "teachercenter" src = "tr11.png" >
+    </div>
+    <div  class="course">
+        <a href = "資料結構_蔡宇軒.html" target="_blank"><br>&emsp;資料結構&emsp;</a>
+        <div class="study"><a href = "資料結構實習_蔡宇軒.html" target="_blank"><br>資料結構實習</a></div>
+        <button class="btn btn-6" id="back11">&laquo;&emsp;back<span></span></button> 
+    </div>
+</div>
+
+<div id="teacher12" style="display:none">
+    <!--嚴茂旭 (1).png  -->
+    <div class="container">
+        <h1> <strong><p id="rotateText" class="ntouu2">NTOU</p></strong></h1>
+     </div>
+    <div class="container">
+        <h2> <strong><p id="rotateText">嚴&ensp;茂&ensp;旭</p></strong></h2>
+     </div>
+    <div >
+        <img id = "teachercenter" src = "tr12.png" >
+    </div>
+    <div  class="course">
+        <a href = "數位邏輯_嚴茂旭.html" target="_blank"><br>&emsp;數位邏輯&emsp;</a>
+        <div class="study"><a href = "數位邏輯實習_嚴茂旭.html" target="_blank"><br>數位邏輯實習</a></div>
+        <button class="btn btn-6" id="back12">&laquo;&emsp;back<span></span></button> 
+    </div>
+</div>
+
+<div id="teacher13" style="display:none">
+    <!--嚴茂旭 (1).png  -->
+    <div class="container">
+        <h1> <strong><p id="rotateText" class="ntouu2">NTOU</p></strong></h1>
+     </div>
+    <div class="container">
+        <h2> <strong><p id="rotateText">林&ensp;川&ensp;傑</p></strong></h2>
+     </div>
+    <div >
+        <img id = "teachercenter" src = "tr13.png" >
+    </div>
+    <div  class="course">
+        <a href = "程式設計(A)_林川傑.html" target="_blank"><br>&emsp;程式設計A&emsp;</a>
+        <div class="study"><a href = "程式設計實習(A)_林川傑.html" target="_blank"><br>程式設計實習A</a></div>
+        <button class="btn btn-6" id="back13">&laquo;&emsp;back<span></span></button> 
+    </div>
+</div>
+
+<div id="page2" style="display: none">
+    <!-- <div id="dialogue">
+    </div><br>
+    <label>User: <input type=" text" id="user" size="10"></label>
+    <label>Say: <input type="text" id="say" size="40"></label>
+    <input type="button" id="chat" value="Submit">
+    <p>
+        <input type="button" id="refresh" value="Refresh">
+        <input type="button" id="save" value="Save to Atlas">
+        <input type="button" id="reload" value="Reload from Atlas">
+    </p> -->
+    <!-- <iframe src="00957034-HW10-1.html"></iframe> -->
+    <button class="btn btn-6" id="back14">&laquo;&emsp;back<span></span></button> 
+</div>
+
+
+</body>
+
+</html>
