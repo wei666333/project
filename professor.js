@@ -227,8 +227,9 @@ $(document).ready(function(){
     $("#comment").click(function(){
         // $("#page2").css("display", "block");
         // $("#page1").css("display", "none");
-        //location.href = "https://wang-final-project.herokuapp.com/";
-       window.open('https://wang-final-project.herokuapp.com/');
+        // location.href = "https://wang-final-project.herokuapp.com/";
+    window.open('https://wang-final-project.herokuapp.com/');
+
     });
 });
 
